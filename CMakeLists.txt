@@ -4,40 +4,27 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
-set(sdkVersion 2.0.0)
-set(toolchainVersion 13_2_Rel1)
+set(sdkVersion 2.2.0)
+set(toolchainVersion 14_2_Rel1)
 set(picotoolVersion 2.0.0)
-if (DEFINED PICO_SDK_PATH)
-# Already defined, e.g. -D flag
-elseif (DEFINED ENV{PICO_SDK_PATH})
-# Defined in an environment variable
+if(EXISTS ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+    include(${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+elseif(DEFINED ENV{PICO_SDK_PATH})
     set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
 else()
-# Use the submodule
     set(PICO_SDK_PATH lib/pico-sdk)
 endif()
 
-if (DEFINED FREERTOS_PATH)
-# Already defined, e.g. -D flag
-elseif(DEFINED ENV{FREERTOS_PATH})
-# Defined in an environment variable
+if(DEFINED ENV{FREERTOS_PATH})
     set(FREERTOS_PATH $ENV{FREERTOS_PATH})
 else()
-# Default use the submodule.
     set(FREERTOS_PATH lib/freertos)
 endif()
-if (DEFINED UNITY_PATH)
-# Already defined, e.g. -D flag
-elseif(DEFINED ENV{UNITY_PATH})
-# Defined in an environment variable
+
+if(DEFINED ENV{UNITY_PATH})
     set(UNITY_PATH $ENV{UNITY_PATH})
 else()
-# Default to the submodule
     set(UNITY_PATH lib/unity)
-endif()
-
-if(DEFINED ENV{OPENOCD_PATH})
-    set(OPENOCD_PATH $ENV{OPENOCD_PATH})
 endif()
 
 # ====================================================================================
