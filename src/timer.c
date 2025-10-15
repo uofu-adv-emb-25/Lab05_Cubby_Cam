@@ -5,6 +5,29 @@
 #define OUT_PIN 0
 #define DELAY_MS 100
 
+//Current: 199.9998ms
+//Min: 199.9998ms
+//Max: 199.9998ms
+//Mean: 199.9998ms
+//stdv: 0ns
+//Wave count: 51
+//Drift: (200 - 199.9998) * (3,600,000 / 199.9998) = 3.6 ms over 1 hour
+
+
+//Current: 5.00002Hz
+//Min: 4.99997Hz
+//Max: 5.00002Hz
+//Mean: 5.00002Hz
+//stdv: 23.108uHz
+//Wave count: 51
+
+//Current: 50%
+//Min: 50%
+//Max: 50%
+//Mean: 50%
+//stdv: 0.00%
+//Wave count: 51
+
 int toggle = 1;
 bool timer_callback(__unused struct repeating_timer *t)
 {

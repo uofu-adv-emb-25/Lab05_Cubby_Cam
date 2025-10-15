@@ -1,8 +1,8 @@
 # This is the main binary. List your C files here.
-set(execName "task_delay")
+set(execName "gpio_interrupt")
 
 add_executable(${execName}
-    task_delay.c
+gpio_interrupt.c
     )
 
 pico_set_program_name(${execName} "test")

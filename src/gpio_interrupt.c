@@ -2,6 +2,17 @@
 #include <pico/stdlib.h>
 #include <pico/sync.h>
 
+#define IN_PIN 27
+#define OUT_PIN 0
+
+//Delay between the sync signal and the output:
+//Current: 3.2us
+//Min: 3.2us
+//Max: 4.8us
+//Mean: 3.2us
+//stdv: 512us
+//Wave count: 16
+
 int toggle = 1;
 void irq_callback(uint gpio, uint32_t event_mask)
 {
