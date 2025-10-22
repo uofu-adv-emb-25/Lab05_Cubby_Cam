@@ -4,6 +4,7 @@
 
 #define IN_PIN 27
 #define OUT_PIN 0
+#define DELAY_MS 50
 
 //Delay between the sync signal and the output:
 //Current: 3.2us
@@ -13,10 +14,20 @@
 //stdv: 512us
 //Wave count: 16
 
+//Delay between the sync signal and the output with 10000ms delay:
+//Current: 5.7us
+//Min: 5.7us
+//Max: 5.7us
+//Mean: 5.7us
+//stdv: 512us
+//Wave count: 16
+
+
 int toggle = 1;
 void irq_callback(uint gpio, uint32_t event_mask)
 {
     if (gpio != IN_PIN) return;
+    sleep_ms(DELAY_MS);
     toggle = !toggle;
     if (event_mask & GPIO_IRQ_EDGE_RISE) {
         gpio_put(OUT_PIN, true);
